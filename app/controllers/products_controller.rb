@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
 
-  def index
+  def index #action view to views folder
     @products = Product.all.order(created_at: :desc)
   end
 
-  def show
+  def show #action vie
     @product = Product.find params[:id]
   end
 

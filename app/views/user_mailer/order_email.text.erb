@@ -1,0 +1,12 @@
+Jungle.com thanks you for your business.
+===============================================
+
+ Here is your order,
+
+ <% @order.line_items.each do |item| %>
+      <%= item.quantity %>  <%= item.product.name %> - <%= item.total_price_cents %>
+    <% end %>
+    TOTAL: <%= @order.total_cents %>
+
+
+Thanks for shopping and have a great day!
