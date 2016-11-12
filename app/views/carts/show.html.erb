@@ -1,5 +1,5 @@
 <section class="cart-show">
-
+<% if cart.count > 0 %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
@@ -49,5 +49,9 @@
       <% end %>
     </div>
   </div>
+<!--   end of if statement -->
 
+<% else %>
+ <h4>Yeah....I'm going to have to ask you to go ahead and  <%= link_to 'add things!', root_path %> to the cart, mmmmkay?</h4>
+<% end %>
 </section>
