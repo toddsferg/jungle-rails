@@ -25,8 +25,7 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-          <dt>Review</dt>
-          <dd><%= %></dd>
+
         </dl>
       </div>
     </div>
@@ -43,7 +42,7 @@
             </div>
              <div>
               <%= f.label 'Review:' %>
-              <%= f.text_field :description, class: 'form-control' %>
+              <%= f.text_area :description, class: 'form-control' %>
             </div>
             <div>
               <%= f.submit "Create" %>
@@ -51,29 +50,30 @@
 
       </div>
     <% end %>
+  <% end %>
 
+    <!-- If there are user reviews show this section -->
 
-        <% end %>
-    <div class="well">
-          <% if @product.reviews.count > 0 %>
+      <% if @product.reviews.count > 0 %>
+          <div class="well">
+
             <h4>Product Reviews:</h4>
-            <% @product.reviews.reverse_each do |review| %>
+              <% @product.reviews.reverse_each do |review| %>
 
-              <div>
-                <h4><%= review.user.name %></h4>
-                <div><%= review.rating %>/5</div>
-                <div><%= review.description %></div>
-                <div>Posted: <%= time_ago_in_words review.created_at%></div>
-              </div>
-              <% if current_user %>
-               <% if current_user.name == review.user.name %>
-                <%= link_to fa_icon('trash'), [review.product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                <div>
+                  <h4><%= review.user.name %></h4>
+                  <div><%= review.rating %>/5</div>
+                  <div><%= review.description %></div>
+                  <div>Posted: <%= time_ago_in_words review.created_at%></div>
+                </div>
+            <% if current_user %>
+             <% if current_user.name == review.user.name %>
+              <%= link_to fa_icon('trash'), [review.product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
                 <% end %>
               <% end %>
             <% end %>
           <% end %>
-
-
+          </div>
 
 
   </article>

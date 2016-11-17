@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
       redirect_to @product
     else
 
-      # flash[:error] = @review.errors.full_messages[0]
+
       redirect_to @product
     end
 
